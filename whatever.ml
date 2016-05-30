@@ -17,7 +17,10 @@ let rec foldr_tail : 'b -> ('a -> 'b -> 'b) -> 'a list -> 'b =
     fun k ls ->
     match ls with
     | [] -> k b
-    | hd :: tl -> g (fun b -> f hd (k b)) tl
+    | hd :: tl -> g (fun b -> k (f hd b)) tl
   in
   g (fun b -> b) ls
+;;
+
+let rec concat_tail : 'a list list -> 'a list = foldr_tail [] (@)
 ;;
