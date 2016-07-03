@@ -86,7 +86,7 @@ let solve : (float * float) list -> int =
 let pi = 2. *. acos 0.;;
 let (==.) x y = x <=. y && y <=. x;;
 
-let test () =
+let () =
   [
     (
       let (x, y) = rotate (pi /. 2.) (2., 1.) in
